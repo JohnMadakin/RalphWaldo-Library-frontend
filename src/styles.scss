@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900|Open+Sans&display=swap');
+$theme_color: #77d3b4;
+$white: #F0FFF0;
+$a_font_size: 1.6rem;
+$theme_font_family: 'Open Sans', serif;
+
+@mixin  flex {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+}
+@mixin logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.6rem;
+}
+@mixin centralise {
+  justify-content: center;
+  align-items: center;
+}
+@mixin button {
+  font-family: $theme_font_family;
+  background-color: $theme_color;
+  color: $white;
+  padding: 1rem 1.5rem;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+  cursor: pointer;
+  &:hover {
+    color: black;
+    opacity: 0.9;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .3);
+  }
+}
+* {
+  box-sizing: border-box
+}
+
+html {
+  font-size: 62.5%;
+  font-family: $theme_font_family;
+  height: 100%;
+}
+
+html, body { height: 100%; margin: 0; }
