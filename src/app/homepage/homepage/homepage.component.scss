@@ -1,0 +1,114 @@
+@import '../../../styles.scss';
+
+$header-padding: 1.5rem 2.5rem;
+
+.header {
+  @include flex;
+  justify-content: space-between;
+  // @include centralise;
+  width: 98%;
+  background-color: white;
+  .logo-search-bar-container {
+    width: 50%;
+    @include flex;
+  }
+  .logo {
+    @include logo;
+    @include flex;
+    @include centralise;
+    width: 300px;
+    // padding: $header-padding;
+    .logo-library {
+      color: #4B0082;
+    }
+  }
+  .header-menu {
+    @include flex;
+    @include centralise;
+    width: 30%;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-size: $a_font_size;
+    .nav-link {
+      cursor: pointer;
+      &:hover {
+        color: $theme_color;
+      }
+    }
+    .signup {
+      @include button;
+    }
+  }
+
+  .search-bar {
+    @include flex;
+    width: 500px;
+    margin-left: 50px;
+    padding: $header-padding;
+    .search-bar-button {
+      @include flex;
+      @include centralise;
+      width: 45px;
+      height: 45px;
+      background-color: $theme_color;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background-color: $theme_color;
+        opacity: 0.8;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+      }
+      .search-icon {
+        fill: $white;
+      }
+    }
+    .search-bar-textbox {
+      width: 300px;
+      margin-left: 5px;
+      padding-left: 5px;
+      &:active, &:focus{
+        outline: solid 2px $theme_color;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+      }
+    }
+  }
+}
+
+.content {
+  height: 100%;
+  width: 98%;
+  @include flex;
+  margin-top: 3.5rem;
+  .hero-content {
+    width: 50%;
+    height: 500px;
+    padding: 2rem 3.5rem;
+    .hero-content-header {
+      font-size: 7.0rem;
+      font-weight: 800;
+      font-family: 'Merriweather', serif;
+      margin-bottom: 1rem;
+    }
+    .hero-content-text {
+      font-size: 1.5rem;
+      width: 50%;
+    }
+    .hero-content-text-large{
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .hero-content-signup {
+      @include button;
+      border: 0;
+      font-size: $a_font_size;
+      width: 100px;
+    }
+  }
+  .hero-image {
+    background: url('../../../assets/images/library-homepage.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    width: 50%;
+  }
+}
