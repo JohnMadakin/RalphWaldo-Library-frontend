@@ -6,18 +6,31 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupSigninTabComponent } from './homepage/signup-signin-tab/signup-signin-tab.component';
+import { LoginComponent } from './homepage/login/login.component';
+import { SignupComponent } from './homepage/signup/signup.component';
 
 const modules = [
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatTabsModule,
+  MatIconModule,
+  MatDialogModule,
+  FormsModule,
+  ReactiveFormsModule
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    SignupSigninTabComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +42,7 @@ const modules = [
     ...modules,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent, SignupComponent]
 })
 export class AppModule { }
