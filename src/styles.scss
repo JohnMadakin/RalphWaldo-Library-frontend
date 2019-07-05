@@ -53,6 +53,29 @@ html {
   height: 100%;
 }
 
+::ng-deep snack-bar-container.error-class {
+  background: rgba(255, 0, 0, .5);
+}
+
+::ng-deep .error-class .mat-simple-snackbar {
+  color: white;
+}
+::ng-deep snack-bar-container.success-class {
+  background: rgba(0, 128, 0, .5);
+}
+
+::ng-deep .success-class .mat-simple-snackbar {
+  color: white;
+}
+
+::ng-deep .success-class .mat-simple-snackbar-action {
+  color: rgb(27, 24, 24);
+}
+
+::ng-deep .error-class .mat-simple-snackbar-action {
+  color: rgb(27, 24, 24);
+}
+
 body { height: 100%; margin: 0; }
 
 .homepage-modalClass .mat-dialog-container {

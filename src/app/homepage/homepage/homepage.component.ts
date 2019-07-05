@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { SignupSigninTabComponent } from '../signup-signin-tab/signup-signin-tab.component';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 
@@ -16,10 +15,9 @@ export class HomepageComponent {
   constructor(public dialog: MatDialog) { }
 
   openDialog(action: string): void {
-    console.log('yay!!! ', action);
     let dialogRef: any;
     if (action === 'login') {
-      const loginHeight = '350px';
+      const loginHeight = '380px';
       dialogRef = this.selectComponent(LoginComponent, loginHeight);
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');

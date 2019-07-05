@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
@@ -10,10 +10,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignupSigninTabComponent } from './homepage/signup-signin-tab/signup-signin-tab.component';
 import { LoginComponent } from './homepage/login/login.component';
 import { SignupComponent } from './homepage/signup/signup.component';
+import { AlertService } from './shared/alert.service';
+import { AuthService } from './auth/__services__/auth.service';
+import { AuthGaurd } from './auth/__services__/auth.guard';
+import { AdminModule } from './admin/admin.module';
 
 const modules = [
   MatFormFieldModule,
@@ -22,15 +27,18 @@ const modules = [
   MatIconModule,
   MatDialogModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  HttpClientModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  // AdminModule,
 ];
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    SignupSigninTabComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,10 +46,11 @@ const modules = [
     ...modules,
     BrowserAnimationsModule
   ],
-  exports: [
-    ...modules,
+  providers: [
+    AlertService,
+    AuthService,
+    AuthGaurd
   ],
-  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, SignupComponent]
 })
