@@ -9,7 +9,7 @@ import { AuthenticationErrorStateMatcher } from 'src/app/services/errorState.ser
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent  {
   matcher = new AuthenticationErrorStateMatcher();
   constructor() { }
   textFormControl = new FormControl('', [
@@ -24,7 +24,5 @@ export class SignupComponent implements OnInit {
     Validators.minLength(8),
   ]);
 
-  ngOnInit() {
-  }
 
 }

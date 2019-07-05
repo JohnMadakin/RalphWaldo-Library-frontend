@@ -1,32 +1,37 @@
-<form class="signup-login-form">
+<form class="signup-login-form" (ngSubmit)="login(username.value, password.value)">
   <div class="form-title">
     <mat-icon class="tab-icon">lock</mat-icon><br/>
     <span class="form-title-text">Login</span>
   </div>
   <div class="input-group">
        <mat-form-field class="input-field" appearance="outline">
-         <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-           Please enter a valid email address
+         <input matInput placeholder="Username or Email" [formControl]="userEmailOrUsername"
+           [errorStateMatcher]="matcher" #username>
+         <mat-error *ngIf="!userEmailOrUsername.hasError('required')">
+           Please enter an email address or username
          </mat-error>
-         <mat-error *ngIf="emailFormControl.hasError('required')">
+         <mat-error *ngIf="userEmailOrUsername.hasError('required')">
            Email is <strong>required</strong>
          </mat-error>
        </mat-form-field><br />
        <mat-form-field class="input-field" appearance="outline">
-         <input matInput type="password" placeholder="Password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
-         <mat-hint>Password should be at least 8 characters</mat-hint>
-         <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('minLength')">
-           Password length should be at least 8 characters
-         </mat-error>
-         <mat-error *ngIf="passwordFormControl.hasError('required')">
+         <input matInput type="password" placeholder="Password" [formControl]="userPassword"
+           [errorStateMatcher]="matcher" #password>
+         <mat-error *ngIf="userPassword.hasError('required')">
            Password is <strong>required</strong>
          </mat-error>
        </mat-form-field>
 
   </div>
+    <mat-error class="login-response" *ngIf="!noAuthError && !errorResponse">
+      Invalid <strong>Username</strong> or <strong>Password</strong>
+    </mat-error>
+
     <div class="login-submit">
-      <button>Login</button>
+      <button type="submit"><span *ngIf="!isLoading">Login</span>
+        <mat-spinner *ngIf="isLoading" [diameter]="20"></mat-spinner>
+      </button>
+      
     </div>
 
 </form>
