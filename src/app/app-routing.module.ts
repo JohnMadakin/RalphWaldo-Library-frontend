@@ -1,3 +1,4 @@
+import { AuthGaurd } from './auth/__services__/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: './admin/admin.module#AdminModule',
+    canActivate: [ AuthGaurd ]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
